@@ -61,6 +61,8 @@ Step 5: Implement Tests & Permissions in DBT
 • Add uniqueness,not null and referential integrity tests in dbt (dbt_integrity_test.sql,refer dbt_integrity_test and permissions.yml). 
 • Ensure the tables are readable using the reader role in Postgres.
 --Create Reader Role: CREATE ROLE reader; --Grant Select Permission to Reader Role: GRANT SELECT ON TABLE australian_websites TO reader; GRANT SELECT ON TABLE abr TO reader; GRANT SELECT ON VIEW aus_company_data TO reader; --Assign Reader Role to Users: GRANT reader TO username;
+--Add the tests and permissions in your dbt_project.yml file:
+models: aus_webdata_project: aus_company_data: tests: - relationships: column: abn to: ref('abr') field: abn post-hook: "GRANT SELECT ON VIEW {{ this }} TO reade
 
 Step 6: Querying the Data for Business Insights 
 • Example queries:
