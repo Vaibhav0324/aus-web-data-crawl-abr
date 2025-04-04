@@ -1,7 +1,29 @@
 # aus-web-data-crawl-abr
 Approach to building a data pipeline for Australian Company Information: Extraction, Cleaning, and Integration
 
-Approach to building a data pipeline for Australian Company Information: Extraction, Cleaning, and Integration
+Technology Choices and Rationale 
+
+Apache Spark:
+Purpose: Large-scale data processing. 
+Rationale: Spark is chosen for its ability to handle large datasets efficiently. It provides distributed data processing capabilities, making it ideal for processing the Common Crawl dataset and ABR data. 
+
+Databricks:
+Purpose: Collaborative data engineering and machine learning. 
+Rationale: Databricks offers a unified analytics platform that simplifies the management and scaling of Spark jobs. It also provides collaborative features for data engineering teams. 
+
+Python:
+Purpose: Scripting. 
+Rationale: Python is widely used in data engineering for its simplicity and extensive libraries. It is used for initial data extraction, cleaning, and transformation tasks. 
+
+DBT (Data Build Tool):
+Purpose: Data transformation and testing. 
+Rationale: DBT is ideal for transforming and testing data. It allows for modular SQL-based transformations and ensures data quality through built-in testing capabilities. 
+
+PostgreSQL:
+Purpose: Storing integrated data. Rationale: 
+PostgreSQL is a robust and reliable relational database. It is used to store the cleaned and integrated company data, providing efficient querying and indexing capabilities.
+
+Pipeline Steps:
 
 Step 1: 
 Extract Australian Company Websites from Common Crawl 
@@ -43,12 +65,8 @@ Step 5: Implement Tests & Permissions in DBT
 Step 6: Querying the Data for Business Insights 
 • Example queries:
   --Retrieve all businesses in a given industry:
-
 SELECT * FROM aus_company_data WHERE industry = 'Technology';
-
 --Count the number of companies per industry:
-
 SELECT industry, COUNT(*) AS company_count FROM aus_company_data GROUP BY industry;
-
 --List companies with social media links: SELECT company_name, social_links FROM aus_company_data WHERE social_links IS NOT NULL;
 
