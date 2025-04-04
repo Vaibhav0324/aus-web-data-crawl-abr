@@ -40,7 +40,7 @@ Step 2: Fetch Business Data from ABR (refer second cell)
 • Clean the data to handle inconsistencies in names.
 
 Step 3: 
-Data Cleaning & Normalization using Spark Dataframes and DBT 
+Data Cleaning & Normalization using Spark Dataframes(refer third cell) and DBT 
 • Remove duplicate entries. 
 • Clean and normalize website data: Convert company names and industries to lowercase and trim spaces 
 • Clean and normalize website data: Convert company names and industries to lowercase and trim spaces using DBT model (aus_company_data.sql)
