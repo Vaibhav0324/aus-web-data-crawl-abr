@@ -1,0 +1,9 @@
+models:
+  aus_webdata_project:
+    aus_company_data:
+      tests:
+        - relationships:
+            column: abn
+            to: ref('abr')
+            field: abn
+      post-hook: "GRANT SELECT ON VIEW {{ this }} TO reader"
